@@ -1,6 +1,17 @@
 <?php
-header("Content-Type: application/json");
-header('Access-Control-Allow-Headers: Content-Type, Authorization');
+// header("Content-Type: application/json");
+// header('Access-Control-Allow-Headers: Content-Type, Authorization');
+// Permitir el acceso desde cualquier origen
+header("Access-Control-Allow-Origin: *");
+
+// Permitir métodos HTTP permitidos
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+
+// Permitir ciertos encabezados
+header("Access-Control-Allow-Headers: Authorization, Content-Type");
+
+// Permitir que los navegadores lean los encabezados que agregamos
+header("Access-Control-Expose-Headers: Authorization");
 $headers=apache_request_headers();
 
 
