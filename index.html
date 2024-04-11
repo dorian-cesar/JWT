@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Llamada a API con Axios</title>
+</head>
+<body>
+    <h1>Productos</h1>
+    <ul id="lista-productos"></ul>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        // URL de la API falsa
+        const apiUrl = 'http://localhost/JWT/apifake.php';
+
+        // Realizar la solicitud GET a la API falsa utilizando Axios
+        axios.get(apiUrl, {
+            // Agregar encabezado de autorización (si es necesario)
+             headers: { 'Authorization': 'Bearer mi_token_secreto' }
+        })
+        .then(response => {
+            // Manejar la respuesta exitosa
+            const productos = response.data;
+            const listaProductos = document.getElementById('lista-productos');
+            productos.forEach(producto => {
+                const li = document.createElement('li');
+                li.textContent = `${producto.nombre} - $${producto.precio}`;
+                listaProductos.appendChild(li);
+            });
+        })
+        .catch(error => {
+            // Manejar errores
+            console.error('Error al llamar a la API:', error);
+        });
+    </script>
+</body>
+</html>
