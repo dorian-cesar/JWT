@@ -15,13 +15,13 @@ header("Access-Control-Expose-Headers: Authorization");
 $headers=apache_request_headers();
 
 
-// Verificar si se proporcionó el encabezado de autenticación
-($authHeader = $headers['Authorization']);
-if (!$authHeader || $authHeader !== 'Bearer mi_token_secreto') {
-    http_response_code(401);
+// // Verificar si se proporcionó el encabezado de autenticación
+// ($authHeader = $headers['Authorization']);
+// if (!$authHeader || $authHeader !== 'Bearer mi_token_secreto') {
+//     http_response_code(401);
     
-    exit(json_encode(["error" => "No autorizado"]));
-}
+//     exit(json_encode(["error" => "No autorizado"]));
+// }
 
 
 
